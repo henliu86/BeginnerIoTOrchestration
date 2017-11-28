@@ -1,40 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>SendPlatformEvent</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>PlatformEventPage</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
         <members>Asset.Serial_Number__c</members>
         <members>Fridge_Event__e.Serial_Number__c</members>
         <members>Fridge_Event__e.Temperature__c</members>
         <members>Fridge_Event__e.door_open__c</members>
-        <members>Platform_Event_Type__c.Event_Type__c</members>
-        <members>Platform_Event_Type__c.JSON_Body__c</members>
-        <members>Platform_Event_Type__c.Platform_Event_Name__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>Fridge_Event__e</members>
-        <members>Platform_Event_Type__c</members>
         <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Platform_Event_Page</members>
-        <members>Platform_Event_Type__c</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Platform_Event_Type__c-Platform Event Type Layout</members>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>Platform_Event_Type__c.All</members>
-        <name>ListView</name>
     </types>
     <types>
         <members>Fridge_Monitoring</members>
