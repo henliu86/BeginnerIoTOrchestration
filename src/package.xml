@@ -9,6 +9,7 @@
         <name>ApexPage</name>
     </types>
     <types>
+        <members>Asset.Serial_Number__c</members>
         <members>Fridge_Event__e.Serial_Number__c</members>
         <members>Fridge_Event__e.Temperature__c</members>
         <members>Fridge_Event__e.door_open__c</members>
