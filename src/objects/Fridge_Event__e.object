@@ -2,6 +2,7 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Fridgeco Event</description>
+    <eventType>StandardVolume</eventType>
     <fields>
         <fullName>Serial_Number__c</fullName>
         <externalId>false</externalId>

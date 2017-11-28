@@ -1,0 +1,82 @@
+<apex:page showHeader="true" sidebar="false" standardStylesheets="false" controller="SendPlatformEvent">
+    <head>
+        <apex:slds id="slds" rendered="true"/>    
+    </head>
+    
+    
+    <apex:form >
+        <!--
+        <div class="slds-form-element">
+            <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none">Toggle Label</span>
+                <input type="checkbox" name="checkbox" aria-describedby="toggle-desc" value="on" />
+                <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+                    <span class="slds-checkbox_faux"></span>
+                    <span class="slds-checkbox_on">Enabled</span>
+                    <span class="slds-checkbox_off">Disabled</span>
+                </span>
+            </label>
+        </div>
+        -->
+        <div class="demo-only slds-grid" style="background: rgb(244, 246, 249); padding: 1rem;">
+            <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+                <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+                    <div class="slds-panel__section slds-border_bottom">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <h2 class="slds-truncate slds-text-heading_small" title="Create Platform Events">Create Platform Events</h2>
+                                <p class="slds-truncate slds-text-body_small" title="Jun 18">Invoke platform events by clicking on the buttons. It will do a REST post to the Platform Event's API.</p>
+                                <div class="slds-button-group slds-m-top_small" role="group">
+                                    <apex:panelGroup id="eventButtonPanel">
+                                    <apex:repeat value="{!allEventTypes}" var="eventButton">
+                                        <apex:commandButton value="{!eventButton.Name}" action="{!post}" reRender="restposts,restresponses" styleClass="slds-button slds-button_neutral">
+                                            <apex:param name="jsonBody" value="{!eventButton.JSON_Body__c}" assignTo="{!body}"/>
+                                            <apex:param name="platformEventDevName" value="{!eventButton.Platform_Event_Name__c}" assignTo="{!platformEventName}"/>
+                                        </apex:commandButton>
+                                    </apex:repeat>
+                                    </apex:panelGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-panel__section">
+                        <h3 class="slds-text-heading_small slds-m-bottom_medium">Debug</h3>
+                        <ul>
+                            <li class="slds-form-element slds-hint-parent slds-border_bottom">
+                                <span class="slds-form-element__label">REST Posts</span>
+                                <div class="slds-form-element__control">
+                                    <span class="slds-form-element__static">
+                                        <apex:panelGroup id="restposts">
+                                            <div class="slds-grid slds-grid_pull-padded-medium">
+                                                <div class="slds-col slds-p-horizontal_medium">
+                                                    <apex:outputText value="{!postString}" escape="false"/>
+                                                </div>
+                                                <!--
+                                                <div class="slds-col slds-p-horizontal_medium">
+                                                    <apex:outputText value="{!restEndPoint + platformEventName}"/>
+                                                </div>
+                                                -->
+                                            </div>
+                                        </apex:panelGroup> 
+                                        
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="slds-form-element slds-hint-parent slds-border_bottom">
+                                <span class="slds-form-element__label">REST Responses</span>
+                                <div class="slds-form-element__control">
+                                    <span class="slds-form-element__static">
+                                        <apex:panelGroup id="restresponses">    
+                                                <apex:outputText value="{!responseString}" escape="false"/>
+                                        </apex:panelGroup>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <apex:commandButton value="Add Platform Event Types" action="{!insertFridgeData}" styleClass="slds-button slds-button_destructive" reRender="eventButtonPanel"/>
+    </apex:form>
+</apex:page>
